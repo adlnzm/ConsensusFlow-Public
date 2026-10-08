@@ -1,0 +1,15 @@
+{
+  "title": "Illustrative public governance decision",
+  "description": "Reduced educational decision envelope. ACCEPT at eligibility is not model promotion.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "stage", "outcome", "policy", "reasons", "evidence_refs"],
+  "properties": {
+    "contract": {"const": "illustrative-v1"},
+    "stage": {"enum": ["eligibility", "selection", "promotion"]},
+    "outcome": {"enum": ["ACCEPT", "REJECT", "DEFER"]},
+    "policy": {"type": "string", "minLength": 1},
+    "reasons": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  }
+}

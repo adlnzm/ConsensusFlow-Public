@@ -1,0 +1,22 @@
+{
+  "title": "Illustrative public forecast response",
+  "description": "A reduced educational response, not a live service specification. Baseline results do not claim learned-model provenance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "method", "value", "horizon_hours", "model_ref", "evidence_ref"],
+  "properties": {
+    "contract": {"const": "illustrative-v1"},
+    "method": {"enum": ["learned_model", "naive_persistence"]},
+    "value": {"type": "number", "exclusiveMinimum": 0},
+    "horizon_hours": {"type": "integer", "minimum": 1},
+    "model_ref": {"type": ["string", "null"], "minLength": 1},
+    "evidence_ref": {"type": ["string", "null"], "minLength": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"method": {"const": "learned_model"}}},
+      "then": {"properties": {"model_ref": {"type": "string"}, "evidence_ref": {"type": "string"}}},
+      "else": {"properties": {"model_ref": {"type": "null"}, "evidence_ref": {"type": "null"}}}
+    }
+  ]
+}
