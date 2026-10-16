@@ -1,3 +1,4 @@
+![Project Cover](./images/consensus.png)
 # ConsensusFlow
 
 **A governed real-time crypto market intelligence platform.**
