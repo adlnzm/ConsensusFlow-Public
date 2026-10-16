@@ -41,8 +41,6 @@ The schema includes:
 - JSON payload storage and SHA-256 payload hashing.
 - An immutability trigger intended to protect stored raw records from modification.
 
-The Bronze schema was applied on October 8, 2026.
-
 **Implementation boundary:** the schema and integrity mechanisms are implemented, but the available evidence does not establish that every acquisition event passes through Bronze before Kafka publication. Nor does it establish a complete, tested recovery path that rebuilds downstream state from Bronze. Bronze must therefore not be described as the proven, authoritative replay source for the complete platform.
 
 Kafka remains the established event-transport layer, with replay bounded by its configured retention. PostgreSQL Bronze is a separate raw-data persistence capability whose end-to-end operational guarantees remain to be verified.
